@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import public "google/protobuf/empty.proto";
+
+package namesandcolors;
+
+service NamesAndColors {
+  rpc ListNames(google.protobuf.Empty) returns (stream Name) {}
+  rpc TellColors(stream Color) returns (google.protobuf.Empty) {}
+}
+
+message Name {
+  string name = 1;
+}
+
+message Color {
+  string color = 1;
+}
